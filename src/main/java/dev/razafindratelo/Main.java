@@ -1,17 +1,51 @@
 package dev.razafindratelo;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import dev.razafindratelo.destinations.Points;
+import dev.razafindratelo.walks.RandomWalks;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        Points HEI = new Points("HEI", 0);
+        Points Pullman = new Points("Pullman", 1);
+        Points Balancoir = new Points("Balançoire", 2);
+        Points Nexta = new Points("Nexta", 3);
+        Points Esti =  new Points("Esti", 4);
+        Points Boulevard = new Points("Boulevard", 5);
+        Points Sekolintsika = new Points("Sekolintsika", 6);
+        Points Marais = new Points("Marais", 7);
+
+        List<Points> pointsList1 = List.of(Balancoir, Pullman, Sekolintsika);
+        HEI.setPossibleDestinations(pointsList1);
+
+        List<Points> pointsList2 = List.of(HEI, Nexta, Balancoir);
+        Pullman.setPossibleDestinations(pointsList2);
+
+        List<Points> pointsList3 = List.of(HEI, Pullman, Boulevard, Esti);
+        Balancoir.setPossibleDestinations(pointsList3);
+
+        List<Points> pointsList4 = List.of(Pullman);
+        Nexta.setPossibleDestinations(pointsList4);
+
+        List<Points> pointsList5 = List.of(Boulevard, Balancoir);
+        Esti.setPossibleDestinations(pointsList5);
+
+        List<Points> pointsList6 = List.of(Balancoir, Esti);
+        Boulevard.setPossibleDestinations(pointsList6);
+
+        List<Points> pointsList7 = List.of(HEI, Marais);
+        Sekolintsika.setPossibleDestinations(pointsList7);
+
+        List<Points> pointsList8 = List.of(Sekolintsika);
+        Marais.setPossibleDestinations(pointsList8);
+
+        var randomWalks = new RandomWalks(HEI, Esti);
+
+        randomWalks.randomWalk();
+        System.out.println(randomWalks.getPattern());
+
     }
 }
