@@ -1,17 +1,29 @@
 package dev.razafindratelo.destinations;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.ToString;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@ToString
+@Getter
+@Setter
 public class Points {
     private String name;
     private int number;
-    private List<Point> possibleDestinations;
+    private List<Points> possibleDestinations;
+
+    public Points(String name, int number) {
+        this.name = name;
+        this.number = number;
+        this.possibleDestinations = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Points{" +
+                "name='" + name
+                +"}";
+    }
 }
