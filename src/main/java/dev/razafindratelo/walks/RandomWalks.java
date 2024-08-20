@@ -3,25 +3,25 @@ package dev.razafindratelo.walks;
 import dev.razafindratelo.destinations.Points;
 import lombok.Data;
 import lombok.ToString;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 @Data
-@ToString
 public class RandomWalks {
-    private Points points;
-    private List<Points> pointsList;
+    private Points currentPoint;
     private List<Points> pattern;
     private Points destination;
 
-    public RandomWalks(Points points, List<Points> pointsList, Points destination) {
-        this.points = points;
-        this.pointsList = pointsList;
+    public RandomWalks(Points currentPoint, Points destination) {
+        this.currentPoint = currentPoint;
         this.destination = destination;
+        this.pattern = new ArrayList<>();
 
     }
-    public static Points getRandomPoint(List<Points> pointsList) {
-        List<Integer> pointsCoordinates = pointsList
+    private static Points getRandomPoint(List<Points> possibleDestinations) {
+        List<Integer> pointsCoordinates = possibleDestinations
                 .stream()
                 .map(Points::getNumber)
                 .toList();
@@ -29,7 +29,34 @@ public class RandomWalks {
         int randomIndex = random.nextInt(pointsCoordinates.size());
         int randomNumber = pointsCoordinates.get(randomIndex);
 
-        return pointsList.get(randomIndex);
+        for (Points point : possibleDestinations) {
+            if (point.getNumber() == randomNumber) {
+                return point;
+            }
+        }
+        return null;
     }
 
+    public List<Points> randomWalk() {
+        this.pattern = new ArrayList<>();
+        this.pattern.add(this.currentPoint);
+        Points currentEmplacement = this.currentPoint;
+        while(currentEmplacement != this.destination) {
+            Points nextEmplacement = getRandomPoint(
+                    currentEmplacement.getPossibleDestinations()
+            );
+            this.pattern.add(nextEmplacement);
+            currentEmplacement = nextEmplacement;
+        }
+        return this.pattern;
+    }
+
+    @Override
+    public String toString() {
+        return "RandomWalks{" +
+                "currentPoint=" + currentPoint +
+                ", pattern=" + pattern.toString() +
+                ", destination=" + destination +
+                '}';
+    }
 }
