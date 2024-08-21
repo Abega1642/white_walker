@@ -18,6 +18,7 @@ public class RandomWalks {
         this.pattern = new ArrayList<>();
 
     }
+
     private static Points getRandomPoint(List<Points> possibleDestinations) {
         List<Integer> pointsCoordinates = possibleDestinations
                 .stream()
@@ -25,14 +26,8 @@ public class RandomWalks {
                 .toList();
         Random random = new Random();
         int randomIndex = random.nextInt(pointsCoordinates.size());
-        int randomNumber = pointsCoordinates.get(randomIndex);
 
-        for (Points point : possibleDestinations) {
-            if (point.getNumber() == randomNumber) {
-                return point;
-            }
-        }
-        return null;
+        return possibleDestinations.get(randomIndex);
     }
 
     public void randomWalk() {
