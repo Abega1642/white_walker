@@ -20,12 +20,8 @@ public class RandomWalks {
     }
 
     private static Points getRandomPoint(List<Points> possibleDestinations) {
-        List<Integer> pointsCoordinates = possibleDestinations
-                .stream()
-                .map(Points::getNumber)
-                .toList();
         Random random = new Random();
-        int randomIndex = random.nextInt(pointsCoordinates.size());
+        int randomIndex = random.nextInt(possibleDestinations.size());
 
         return possibleDestinations.get(randomIndex);
     }
