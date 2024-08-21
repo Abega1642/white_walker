@@ -10,11 +10,11 @@ import java.util.Random;
 public class RandomWalks {
     private Points currentPoint;
     private List<Points> pattern;
-    private Points destination;
+    private Points destinationPoint;
 
-    public RandomWalks(Points currentPoint, Points destination) {
-        this.currentPoint = currentPoint;
-        this.destination = destination;
+    public RandomWalks(Points currentPlace, Points destination) {
+        this.currentPoint = currentPlace;
+        this.destinationPoint = destination;
         this.pattern = new ArrayList<>();
 
     }
@@ -30,7 +30,7 @@ public class RandomWalks {
         this.pattern = new ArrayList<>();
         this.pattern.add(this.currentPoint);
         Points currentEmplacement = this.currentPoint;
-        while(currentEmplacement != this.destination) {
+        while(currentEmplacement != this.destinationPoint) {
             Points nextEmplacement = getRandomPoint(
                     currentEmplacement.getPossibleDestinations()
             );
@@ -44,7 +44,7 @@ public class RandomWalks {
         return "RandomWalks{" +
                 "currentPoint=" + currentPoint +
                 ", pattern=" + pattern.toString() +
-                ", destination=" + destination +
+                ", destination=" + destinationPoint +
                 '}';
     }
 }
