@@ -2,8 +2,6 @@ package dev.razafindratelo.walks;
 
 import dev.razafindratelo.destinations.Points;
 import lombok.Data;
-import lombok.ToString;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -37,7 +35,7 @@ public class RandomWalks {
         return null;
     }
 
-    public List<Points> randomWalk() {
+    public void randomWalk() {
         this.pattern = new ArrayList<>();
         this.pattern.add(this.currentPoint);
         Points currentEmplacement = this.currentPoint;
@@ -48,7 +46,6 @@ public class RandomWalks {
             this.pattern.add(nextEmplacement);
             currentEmplacement = nextEmplacement;
         }
-        return this.pattern;
     }
 
     @Override
