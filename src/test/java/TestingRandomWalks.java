@@ -9,37 +9,147 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestingRandomWalks {
 
     @Test
-    void testRandomWalks() {
+    void testRandomWalks_HEI_to_ESTI() {
         Points HEI = new Points("HEI", 0);
-        Points Pullman = new Points("Pullman", 1);
-        Points Balancoir = new Points("Balançoire", 2);
-        Points Nexta = new Points("Nexta", 3);
-        Points Esti =  new Points("Esti", 4);
-        Points Boulevard = new Points("Boulevard", 5);
-        Points Sekolintsika = new Points("Sekolintsika", 6);
-        Points Marais = new Points("Marais", 7);
-        List<Points> pointsList1 = List.of(Balancoir, Pullman, Sekolintsika);
+        Points PULLMAN = new Points("PULLMAN", 1);
+        Points BALANCOIR = new Points("Balançoire", 2);
+        Points NEXTA = new Points("NEXTA", 3);
+        Points ESTI =  new Points("ESTI", 4);
+        Points BOULEVARD = new Points("BOULEVARD", 5);
+        Points SEKOLINTSIKA = new Points("SEKOLINTSIKA", 6);
+        Points MARAIS = new Points("MARAIS", 7);
+        List<Points> pointsList1 = List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA);
         HEI.setPossibleDestinations(pointsList1);
-        List<Points> pointsList2 = List.of(HEI, Nexta, Balancoir);
-        Pullman.setPossibleDestinations(pointsList2);
-        List<Points> pointsList3 = List.of(HEI, Pullman, Boulevard, Esti);
-        Balancoir.setPossibleDestinations(pointsList3);
-        List<Points> pointsList4 = List.of(Pullman);
-        Nexta.setPossibleDestinations(pointsList4);
-        List<Points> pointsList5 = List.of(Boulevard, Balancoir);
-        Esti.setPossibleDestinations(pointsList5);
-        List<Points> pointsList6 = List.of(Balancoir, Esti);
-        Boulevard.setPossibleDestinations(pointsList6);
-        List<Points> pointsList7 = List.of(HEI, Marais);
-        Sekolintsika.setPossibleDestinations(pointsList7);
-        List<Points> pointsList8 = List.of(Sekolintsika);
-        Marais.setPossibleDestinations(pointsList8);
-        var randomWalks = new RandomWalks(HEI, Esti);
+        List<Points> pointsList2 = List.of(HEI, NEXTA, BALANCOIR);
+        PULLMAN.setPossibleDestinations(pointsList2);
+        List<Points> pointsList3 = List.of(HEI, PULLMAN, BOULEVARD, ESTI);
+        BALANCOIR.setPossibleDestinations(pointsList3);
+        List<Points> pointsList4 = List.of(PULLMAN);
+        NEXTA.setPossibleDestinations(pointsList4);
+        List<Points> pointsList5 = List.of(BOULEVARD, BALANCOIR);
+        ESTI.setPossibleDestinations(pointsList5);
+        List<Points> pointsList6 = List.of(BALANCOIR, ESTI);
+        BOULEVARD.setPossibleDestinations(pointsList6);
+        List<Points> pointsList7 = List.of(HEI, MARAIS);
+        SEKOLINTSIKA.setPossibleDestinations(pointsList7);
+        List<Points> pointsList8 = List.of(SEKOLINTSIKA);
+        MARAIS.setPossibleDestinations(pointsList8);
+
+        var randomWalks = new RandomWalks(HEI, ESTI);
 
         randomWalks.randomWalk();
+        List<Points> paths = randomWalks.getPattern();
 
-        assertEquals("HEI", randomWalks.getCurrentPoint().getName());
-        assertEquals("Esti", randomWalks.getDestination().getName());
+        assertEquals("HEI", paths.getFirst().getName());
+        assertEquals("ESTI", paths.getLast().getName());
 
+    }
+
+    @Test
+    void testRandomWalks_MARAIS_to_Boulevard() {
+        Points HEI = new Points("HEI", 0);
+        Points PULLMAN = new Points("PULLMAN", 1);
+        Points BALANCOIR = new Points("Balançoire", 2);
+        Points NEXTA = new Points("NEXTA", 3);
+        Points ESTI =  new Points("ESTI", 4);
+        Points BOULEVARD = new Points("BOULEVARD", 5);
+        Points SEKOLINTSIKA = new Points("SEKOLINTSIKA", 6);
+        Points MARAIS = new Points("MARAIS", 7);
+        List<Points> pointsList1 = List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA);
+        HEI.setPossibleDestinations(pointsList1);
+        List<Points> pointsList2 = List.of(HEI, NEXTA, BALANCOIR);
+        PULLMAN.setPossibleDestinations(pointsList2);
+        List<Points> pointsList3 = List.of(HEI, PULLMAN, BOULEVARD, ESTI);
+        BALANCOIR.setPossibleDestinations(pointsList3);
+        List<Points> pointsList4 = List.of(PULLMAN);
+        NEXTA.setPossibleDestinations(pointsList4);
+        List<Points> pointsList5 = List.of(BOULEVARD, BALANCOIR);
+        ESTI.setPossibleDestinations(pointsList5);
+        List<Points> pointsList6 = List.of(BALANCOIR, ESTI);
+        BOULEVARD.setPossibleDestinations(pointsList6);
+        List<Points> pointsList7 = List.of(HEI, MARAIS);
+        SEKOLINTSIKA.setPossibleDestinations(pointsList7);
+        List<Points> pointsList8 = List.of(SEKOLINTSIKA);
+        MARAIS.setPossibleDestinations(pointsList8);
+
+        var randomWalks = new RandomWalks(MARAIS, BOULEVARD);
+
+        randomWalks.randomWalk();
+        List<Points> paths = randomWalks.getPattern();
+
+        assertEquals("MARAIS", paths.getFirst().getName());
+        assertEquals("BOULEVARD", paths.getLast().getName());
+    }
+
+    @Test
+    void testRandomWalks_SEKOLINTSIKA_to_HEI() {
+        Points HEI = new Points("HEI", 0);
+        Points PULLMAN = new Points("PULLMAN", 1);
+        Points BALANCOIR = new Points("Balançoire", 2);
+        Points NEXTA = new Points("NEXTA", 3);
+        Points ESTI =  new Points("ESTI", 4);
+        Points BOULEVARD = new Points("BOULEVARD", 5);
+        Points SEKOLINTSIKA = new Points("SEKOLINTSIKA", 6);
+        Points MARAIS = new Points("MARAIS", 7);
+        List<Points> pointsList1 = List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA);
+        HEI.setPossibleDestinations(pointsList1);
+        List<Points> pointsList2 = List.of(HEI, NEXTA, BALANCOIR);
+        PULLMAN.setPossibleDestinations(pointsList2);
+        List<Points> pointsList3 = List.of(HEI, PULLMAN, BOULEVARD, ESTI);
+        BALANCOIR.setPossibleDestinations(pointsList3);
+        List<Points> pointsList4 = List.of(PULLMAN);
+        NEXTA.setPossibleDestinations(pointsList4);
+        List<Points> pointsList5 = List.of(BOULEVARD, BALANCOIR);
+        ESTI.setPossibleDestinations(pointsList5);
+        List<Points> pointsList6 = List.of(BALANCOIR, ESTI);
+        BOULEVARD.setPossibleDestinations(pointsList6);
+        List<Points> pointsList7 = List.of(HEI, MARAIS);
+        SEKOLINTSIKA.setPossibleDestinations(pointsList7);
+        List<Points> pointsList8 = List.of(SEKOLINTSIKA);
+        MARAIS.setPossibleDestinations(pointsList8);
+
+        var randomWalks = new RandomWalks(SEKOLINTSIKA, HEI);
+
+        randomWalks.randomWalk();
+        List<Points> paths = randomWalks.getPattern();
+
+        assertEquals("SEKOLINTSIKA", paths.getFirst().getName());
+        assertEquals("HEI", paths.getLast().getName());
+    }
+
+    @Test
+    void testRandomWalks_ESTI_to_MARAIS() {
+        Points HEI = new Points("HEI", 0);
+        Points PULLMAN = new Points("PULLMAN", 1);
+        Points BALANCOIR = new Points("Balançoire", 2);
+        Points NEXTA = new Points("NEXTA", 3);
+        Points ESTI =  new Points("ESTI", 4);
+        Points BOULEVARD = new Points("BOULEVARD", 5);
+        Points SEKOLINTSIKA = new Points("SEKOLINTSIKA", 6);
+        Points MARAIS = new Points("MARAIS", 7);
+        List<Points> pointsList1 = List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA);
+        HEI.setPossibleDestinations(pointsList1);
+        List<Points> pointsList2 = List.of(HEI, NEXTA, BALANCOIR);
+        PULLMAN.setPossibleDestinations(pointsList2);
+        List<Points> pointsList3 = List.of(HEI, PULLMAN, BOULEVARD, ESTI);
+        BALANCOIR.setPossibleDestinations(pointsList3);
+        List<Points> pointsList4 = List.of(PULLMAN);
+        NEXTA.setPossibleDestinations(pointsList4);
+        List<Points> pointsList5 = List.of(BOULEVARD, BALANCOIR);
+        ESTI.setPossibleDestinations(pointsList5);
+        List<Points> pointsList6 = List.of(BALANCOIR, ESTI);
+        BOULEVARD.setPossibleDestinations(pointsList6);
+        List<Points> pointsList7 = List.of(HEI, MARAIS);
+        SEKOLINTSIKA.setPossibleDestinations(pointsList7);
+        List<Points> pointsList8 = List.of(SEKOLINTSIKA);
+        MARAIS.setPossibleDestinations(pointsList8);
+
+        var randomWalks = new RandomWalks(ESTI, MARAIS);
+
+        randomWalks.randomWalk();
+        List<Points> paths = randomWalks.getPattern();
+
+        assertEquals("ESTI", paths.getFirst().getName());
+        assertEquals("MARAIS", paths.getLast().getName());
     }
 }
