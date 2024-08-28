@@ -12,7 +12,7 @@ The `name` is the name of the place. The `number` is the id of the road that go 
 
 `NB : ` the `number` should be unique in the `possibleDestinations`, but can be duplicated anywhere else.
 
-### The `RandomWalks` class :
+### The `WhiteWalker` class :
 
 This class handle the pattern for the white walker.
 
