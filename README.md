@@ -28,8 +28,8 @@ This method draws the pattern of the while walker from the current place towards
 
 
 ### Example : 
-        
-            // Create places
+
+            // create all places
         Points HEI = new Points("HEI", 0);
         Points PULLMAN = new Points("PULLMAN", 1);
         Points BALANCOIR = new Points("Balançoire", 2);
@@ -38,31 +38,16 @@ This method draws the pattern of the while walker from the current place towards
         Points BOULEVARD = new Points("BOULEVARD", 5);
         Points SEKOLINTSIKA = new Points("SEKOLINTSIKA", 6);
         Points MARAIS = new Points("MARAIS", 7);
-    
-            // Create all possible destination for each places
-        List<Points> pointsList1 = List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA);
-        HEI.setPossibleDestinations(pointsList1);
 
-        List<Points> pointsList2 = List.of(HEI, NEXTA, BALANCOIR);
-        PULLMAN.setPossibleDestinations(pointsList2);
-
-        List<Points> pointsList3 = List.of(HEI, PULLMAN, BOULEVARD, ESTI);
-        BALANCOIR.setPossibleDestinations(pointsList3);
-
-        List<Points> pointsList4 = List.of(PULLMAN);
-        NEXTA.setPossibleDestinations(pointsList4);
-
-        List<Points> pointsList5 = List.of(BOULEVARD, BALANCOIR);
-        ESTI.setPossibleDestinations(pointsList5);
-
-        List<Points> pointsList6 = List.of(BALANCOIR, ESTI);
-        BOULEVARD.setPossibleDestinations(pointsList6);
-
-        List<Points> pointsList7 = List.of(HEI, MARAIS);
-        SEKOLINTSIKA.setPossibleDestinations(pointsList7);
-
-        List<Points> pointsList8 = List.of(SEKOLINTSIKA);
-        MARAIS.setPossibleDestinations(pointsList8);
+            // create all possible roads
+        HEI.setPossibleDestinations(List.of(BALANCOIR, PULLMAN, SEKOLINTSIKA));
+        PULLMAN.setPossibleDestinations(List.of(HEI, NEXTA, BALANCOIR));
+        BALANCOIR.setPossibleDestinations(List.of(HEI, PULLMAN, BOULEVARD, ESTI));
+        NEXTA.setPossibleDestinations(List.of(PULLMAN));
+        ESTI.setPossibleDestinations(List.of(BOULEVARD, BALANCOIR));
+        BOULEVARD.setPossibleDestinations(List.of(BALANCOIR, ESTI));
+        SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
+        MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
             
             // create the planning of the trip
         var randomWalks = new RandomWalks(HEI, NEXTA);
