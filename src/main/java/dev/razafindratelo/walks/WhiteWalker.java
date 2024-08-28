@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Random;
 
 @Data
-public class RandomWalks {
+public class WhiteWalker {
     private Points currentPoint;
     private List<Points> pattern;
     private Points destinationPoint;
 
-    public RandomWalks(Points currentPlace, Points destination) {
+    public WhiteWalker(Points currentPlace, Points destination) {
         this.currentPoint = currentPlace;
         this.destinationPoint = destination;
         this.pattern = new ArrayList<>();

@@ -1,12 +1,12 @@
 import dev.razafindratelo.destinations.Points;
-import dev.razafindratelo.walks.RandomWalks;
+import dev.razafindratelo.walks.WhiteWalker;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestingRandomWalks {
+public class TestingWhiteWalker {
 
     @Test
     void testRandomWalks_HEI_to_ESTI() {
@@ -28,7 +28,7 @@ public class TestingRandomWalks {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new RandomWalks(HEI, ESTI);
+        var randomWalks = new WhiteWalker(HEI, ESTI);
 
         randomWalks.randomWalk();
         List<Points> paths = randomWalks.getPattern();
@@ -59,7 +59,7 @@ public class TestingRandomWalks {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new RandomWalks(MARAIS, BOULEVARD);
+        var randomWalks = new WhiteWalker(MARAIS, BOULEVARD);
 
         randomWalks.randomWalk();
         List<Points> paths = randomWalks.getPattern();
@@ -88,7 +88,7 @@ public class TestingRandomWalks {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new RandomWalks(SEKOLINTSIKA, HEI);
+        var randomWalks = new WhiteWalker(SEKOLINTSIKA, HEI);
 
         randomWalks.randomWalk();
         List<Points> paths = randomWalks.getPattern();
@@ -117,7 +117,7 @@ public class TestingRandomWalks {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new RandomWalks(ESTI, MARAIS);
+        var randomWalks = new WhiteWalker(ESTI, MARAIS);
 
         randomWalks.randomWalk();
         List<Points> paths = randomWalks.getPattern();
