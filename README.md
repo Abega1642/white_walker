@@ -50,10 +50,10 @@ This method draws the pattern of the while walker from the current place towards
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
             
             // create the planning of the trip
-        var randomWalks = new RandomWalks(HEI, NEXTA);
+        var white_walker = new WhiteWalker(HEI, NEXTA);
 
             // execute the random walk of the white walker
-        randomWalks.randomWalk();
+        white_walker.randomWalk();
 
 The result :
 

@@ -28,10 +28,10 @@ public class TestingWhiteWalker {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new WhiteWalker(HEI, ESTI);
+        var white_walker = new WhiteWalker(HEI, ESTI);
 
-        randomWalks.randomWalk();
-        List<Points> paths = randomWalks.getPattern();
+        white_walker.randomWalk();
+        List<Points> paths = white_walker.getPattern();
 
         assertEquals("HEI", paths.getFirst().getName());
         assertEquals("ESTI", paths.getLast().getName());
@@ -59,10 +59,10 @@ public class TestingWhiteWalker {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new WhiteWalker(MARAIS, BOULEVARD);
+        var white_walker = new WhiteWalker(MARAIS, BOULEVARD);
 
-        randomWalks.randomWalk();
-        List<Points> paths = randomWalks.getPattern();
+        white_walker.randomWalk();
+        List<Points> paths = white_walker.getPattern();
 
         assertEquals("MARAIS", paths.getFirst().getName());
         assertEquals("BOULEVARD", paths.getLast().getName());
@@ -88,10 +88,10 @@ public class TestingWhiteWalker {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new WhiteWalker(SEKOLINTSIKA, HEI);
+        var white_walker = new WhiteWalker(SEKOLINTSIKA, HEI);
 
-        randomWalks.randomWalk();
-        List<Points> paths = randomWalks.getPattern();
+        white_walker.randomWalk();
+        List<Points> paths = white_walker.getPattern();
 
         assertEquals("SEKOLINTSIKA", paths.getFirst().getName());
         assertEquals("HEI", paths.getLast().getName());
@@ -117,10 +117,10 @@ public class TestingWhiteWalker {
         SEKOLINTSIKA.setPossibleDestinations(List.of(HEI, MARAIS));
         MARAIS.setPossibleDestinations(List.of(SEKOLINTSIKA));
 
-        var randomWalks = new WhiteWalker(ESTI, MARAIS);
+        var white_walker = new WhiteWalker(ESTI, MARAIS);
 
-        randomWalks.randomWalk();
-        List<Points> paths = randomWalks.getPattern();
+        white_walker.randomWalk();
+        List<Points> paths = white_walker.getPattern();
 
         assertEquals("ESTI", paths.getFirst().getName());
         assertEquals("MARAIS", paths.getLast().getName());
